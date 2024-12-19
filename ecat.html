@@ -13,151 +13,164 @@
         }
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1c1c1c, #333);
+            background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             align-items: center;
-            overflow: hidden;
-            transition: background-color 0.3s ease;
+            justify-content: flex-start;
+            overflow-x: hidden;
+            padding-top: 50px;
         }
         header {
             width: 100%;
-            padding: 3rem 2rem;
-            background: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
             text-align: center;
-            border-bottom: 2px solid #4CAF50;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
         h1 {
             font-size: 3.5rem;
             font-weight: 600;
-            color: #4CAF50;
+            color: #1abc9c;
             margin-bottom: 0.5rem;
         }
         p {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 400;
-            margin-bottom: 1rem;
         }
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             padding: 2rem;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
             text-align: center;
-            margin-bottom: 3rem;
         }
-        .video-container {
-            margin-bottom: 3rem;
-        }
-        iframe {
-            width: 100%;
-            height: 450px;
+        .card {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 900px;
+            margin: 1rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .card h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .card input, .card button {
+            width: 100%;
+            padding: 1.2rem;
+            margin: 1rem 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            background-color: #34495e;
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .card button {
+            background-color: #1abc9c;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .card button:hover {
+            background-color: #16a085;
         }
         .btn {
-            background: #4CAF50;
+            background: #1abc9c;
             border: none;
             color: white;
-            padding: 1rem 2rem;
-            text-align: center;
-            font-size: 1.2rem;
+            padding: 15px 35px;
+            font-size: 1.4rem;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 10px;
             transition: background 0.3s ease;
-            margin-top: 1rem;
+            margin: 1rem 0;
         }
         .btn:hover {
-            background: #45a049;
-        }
-        .admin-panel {
-            margin-top: 3rem;
-            display: none;
-        }
-        .login-form input {
-            padding: 1rem;
-            margin: 1rem 0;
-            width: 100%;
-            border: none;
-            border-radius: 5px;
-            background: #222;
-            color: white;
-            font-size: 1rem;
-        }
-        .login-form button {
-            width: 100%;
-            padding: 1rem;
-            background: #2196F3;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-        .login-form button:hover {
-            background: #1976D2;
+            background: #16a085;
         }
         .toggle-btn {
-            position: absolute;
+            position: fixed;
             top: 20px;
             right: 20px;
-            background: #333;
+            background: #34495e;
             border: none;
             color: white;
             font-size: 1.5rem;
-            padding: 12px;
+            padding: 15px;
             cursor: pointer;
             border-radius: 50%;
-            transition: background 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
         .toggle-btn:hover {
-            background: #444;
+            background: #2c3e50;
         }
-        .light-mode {
-            background: #f5f5f5;
-            color: #333;
-        }
-        footer {
-            padding: 2rem;
-            background: #222;
-            color: white;
+        iframe {
             width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        .login-form {
+            display: none;
+            width: 100%;
+            max-width: 500px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
             text-align: center;
-            border-top: 2px solid #4CAF50;
         }
-        footer h2 {
-            margin-bottom: 1rem;
+        .login-form input {
+            padding: 1.2rem;
+            margin: 1rem 0;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            background: #34495e;
+            color: white;
         }
-        footer p {
-            font-size: 1.1rem;
+        .login-form button {
+            padding: 1.2rem;
+            width: 100%;
+            background-color: #2980b9;
+            color: white;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
         }
-        footer a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
+        .login-form button:hover {
+            background-color: #3498db;
         }
         @media (max-width: 768px) {
             iframe {
-                height: 250px;
+                height: 300px;
             }
-            h1 {
-                font-size: 2.5rem;
+            .container {
+                padding: 1rem;
             }
-            header {
-                padding: 2rem 1rem;
+            .card {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-
     <!-- Dark/Light Mode Toggle Button -->
     <button class="toggle-btn" onclick="toggleMode()">🌙</button>
 
@@ -167,13 +180,31 @@
     </header>
 
     <div class="container">
-        <div class="video-container" id="video-list">
+        <!-- Featured Video Section -->
+        <div class="video-container card">
             <h2>Featured Videos</h2>
             <iframe src="https://www.youtube.com/embed/fBVtwyNk-wU" frameborder="0" allowfullscreen></iframe>
         </div>
 
-        <!-- Admin Panel -->
-        <div id="admin-panel" class="admin-panel">
+        <!-- Google Meet Section -->
+        <div class="card">
+            <h2>Live Classes</h2>
+            <label for="google-meet-link">Enter Google Meet Link:</label>
+            <input type="text" id="google-meet-link" placeholder="Enter Google Meet Link">
+            <button class="btn" onclick="addGoogleMeet()">Add Google Meet Session</button>
+        </div>
+        <div id="meet-list"></div>
+
+        <!-- YouTube Video Section -->
+        <div class="card">
+            <h2>Upload YouTube Videos</h2>
+            <label for="video-url">Enter YouTube Video Link:</label>
+            <input type="text" id="video-url" placeholder="Enter YouTube Video Link">
+            <button class="btn" onclick="addVideo()">Add Video</button>
+        </div>
+
+        <!-- Admin Panel Section -->
+        <div id="admin-panel" class="card">
             <h2>Admin Panel</h2>
             <input type="text" id="video-url" placeholder="Enter YouTube Video Link">
             <button class="btn" onclick="addVideo()">Add Video</button>
@@ -181,19 +212,13 @@
             <button class="btn" onclick="saveChanges()">Save Changes</button>
         </div>
 
-        <!-- Login Form -->
+        <!-- Admin Login Form -->
         <div id="login-form" class="login-form">
             <h2>Admin Login</h2>
             <input type="password" id="password" placeholder="Enter Admin Password">
             <button class="btn" onclick="login()">Login</button>
         </div>
     </div>
-
-    <footer>
-        <h2>Stay Connected</h2>
-        <p>Follow us on <a href="https://twitter.com" target="_blank">Twitter</a> and <a href="https://facebook.com" target="_blank">Facebook</a></p>
-        <p>&copy; 2024 ECAT - All Rights Reserved</p>
-    </footer>
 
     <script>
         // Toggle Dark/Light Mode
@@ -214,13 +239,21 @@
             }
         }
 
-        // Add Video
+        // Add YouTube Video
         function addVideo() {
             const url = document.getElementById('video-url').value;
             const videoId = url.split('v=')[1] || url.split('/').pop();
             const iframe = `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
             document.getElementById('video-list').innerHTML += iframe;
             document.getElementById('video-url').value = ''; // Clear the input field
+        }
+
+        // Add Google Meet Link
+        function addGoogleMeet() {
+            const meetLink = document.getElementById('google-meet-link').value;
+            const meetHTML = `<p><a href="${meetLink}" target="_blank">${meetLink}</a></p>`;
+            document.getElementById('meet-list').innerHTML += meetHTML;
+            document.getElementById('google-meet-link').value = ''; // Clear the input field
         }
 
         // Toggle Edit Mode
@@ -236,9 +269,6 @@
         // Save Changes
         function saveChanges() {
             const data = {
-                mainTitle: document.getElementById('main-title').innerText,
-                subtitle: document.getElementById('subtitle').innerText,
-                videoSectionTitle: document.getElementById('video-section-title').innerText,
                 videoListHTML: document.getElementById('video-list').innerHTML,
             };
             localStorage.setItem('ecatData', JSON.stringify(data));
@@ -250,9 +280,6 @@
             const savedData = localStorage.getItem('ecatData');
             if (savedData) {
                 const data = JSON.parse(savedData);
-                document.getElementById('main-title').innerText = data.mainTitle;
-                document.getElementById('subtitle').innerText = data.subtitle;
-                document.getElementById('video-section-title').innerText = data.videoSectionTitle;
                 document.getElementById('video-list').innerHTML = data.videoListHTML;
             }
         }
