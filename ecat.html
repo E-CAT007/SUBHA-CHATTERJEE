@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECAT - Educational Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1c1c1c, #333);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+        header {
+            width: 100%;
+            padding: 3rem 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            border-bottom: 2px solid #4CAF50;
+        }
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #4CAF50;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .video-container {
+            margin-bottom: 3rem;
+        }
+        iframe {
+            width: 100%;
+            height: 450px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .btn {
+            background: #4CAF50;
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            margin-top: 1rem;
+        }
+        .btn:hover {
+            background: #45a049;
+        }
+        .admin-panel {
+            margin-top: 3rem;
+            display: none;
+        }
+        .login-form input {
+            padding: 1rem;
+            margin: 1rem 0;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            background: #222;
+            color: white;
+            font-size: 1rem;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 1rem;
+            background: #2196F3;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background: #1976D2;
+        }
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #333;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        .toggle-btn:hover {
+            background: #444;
+        }
+        .light-mode {
+            background: #f5f5f5;
+            color: #333;
+        }
+        footer {
+            padding: 2rem;
+            background: #222;
+            color: white;
+            width: 100%;
+            text-align: center;
+            border-top: 2px solid #4CAF50;
+        }
+        footer h2 {
+            margin-bottom: 1rem;
+        }
+        footer p {
+            font-size: 1.1rem;
+        }
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            iframe {
+                height: 250px;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            header {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dark/Light Mode Toggle Button -->
+    <button class="toggle-btn" onclick="toggleMode()">🌙</button>
+
+    <header>
+        <h1>Welcome to ECAT</h1>
+        <p>Transforming Lives, One Coaching Session at a Time. Your Success Story Starts Here.</p>
+    </header>
+
+    <div class="container">
+        <div class="video-container" id="video-list">
+            <h2>Featured Videos</h2>
+            <iframe src="https://www.youtube.com/embed/fBVtwyNk-wU" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- Admin Panel -->
+        <div id="admin-panel" class="admin-panel">
+            <h2>Admin Panel</h2>
+            <input type="text" id="video-url" placeholder="Enter YouTube Video Link">
+            <button class="btn" onclick="addVideo()">Add Video</button>
+            <button class="btn" onclick="toggleEditMode()">Toggle Edit Mode</button>
+            <button class="btn" onclick="saveChanges()">Save Changes</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form" class="login-form">
+            <h2>Admin Login</h2>
+            <input type="password" id="password" placeholder="Enter Admin Password">
+            <button class="btn" onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <footer>
+        <h2>Stay Connected</h2>
+        <p>Follow us on <a href="https://twitter.com" target="_blank">Twitter</a> and <a href="https://facebook.com" target="_blank">Facebook</a></p>
+        <p>&copy; 2024 ECAT - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Toggle Dark/Light Mode
+        function toggleMode() {
+            document.body.classList.toggle('light-mode');
+            const mode = document.body.classList.contains('light-mode') ? '🌙' : '☀️';
+            document.querySelector('.toggle-btn').textContent = mode;
+        }
+
+        // Admin Login
+        function login() {
+            const password = document.getElementById('password').value;
+            if (password === 'Password1*') {
+                document.getElementById('admin-panel').style.display = 'block';
+                document.getElementById('login-form').style.display = 'none';
+            } else {
+                alert('Incorrect password!');
+            }
+        }
+
+        // Add Video
+        function addVideo() {
+            const url = document.getElementById('video-url').value;
+            const videoId = url.split('v=')[1] || url.split('/').pop();
+            const iframe = `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+            document.getElementById('video-list').innerHTML += iframe;
+            document.getElementById('video-url').value = ''; // Clear the input field
+        }
+
+        // Toggle Edit Mode
+        function toggleEditMode() {
+            const editableElements = document.querySelectorAll('[contenteditable]');
+            editableElements.forEach(el => {
+                const isEditable = el.getAttribute('contenteditable') === 'true';
+                el.setAttribute('contenteditable', !isEditable);
+            });
+            alert('Edit Mode ' + (editableElements[0].getAttribute('contenteditable') === 'true' ? 'Enabled' : 'Disabled'));
+        }
+
+        // Save Changes
+        function saveChanges() {
+            const data = {
+                mainTitle: document.getElementById('main-title').innerText,
+                subtitle: document.getElementById('subtitle').innerText,
+                videoSectionTitle: document.getElementById('video-section-title').innerText,
+                videoListHTML: document.getElementById('video-list').innerHTML,
+            };
+            localStorage.setItem('ecatData', JSON.stringify(data));
+            alert('Changes saved locally!');
+        }
+
+        // Load Saved Changes
+        function loadChanges() {
+            const savedData = localStorage.getItem('ecatData');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                document.getElementById('main-title').innerText = data.mainTitle;
+                document.getElementById('subtitle').innerText = data.subtitle;
+                document.getElementById('video-section-title').innerText = data.videoSectionTitle;
+                document.getElementById('video-list').innerHTML = data.videoListHTML;
+            }
+        }
+
+        // Load changes on page load
+        window.onload = loadChanges;
+    </script>
+</body>
+</html>
